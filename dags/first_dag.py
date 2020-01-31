@@ -1,13 +1,15 @@
 import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
+
 args = {
-    "start_date": airflow.utils.dates.days_ago(2),
+    "start_date": airflow.utils.dates.days_ago(5),
 }
 
 dag = DAG(
     dag_id="my_first_dag",
     default_args=args,
+    schedule_interval='@daily',
     description="Demo DAG showing a hello world"
 )
 
