@@ -13,7 +13,6 @@ dag = DAG(
     schedule_interval='30 2 * * *',
     description="Demo DAG showing a hello world",
     start_date=datetime(year=2020, month=1, day=1),
-    catchup=True
 )
 
 operator = PostgresToGoogleCloudStorageOperator(
