@@ -1,9 +1,9 @@
 import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
-
+from datetime import datetime
 args = {
-    "start_date": airflow.utils.dates.days_ago(5),
+    "start_date": datetime(2020, 1, 1),
 }
 
 dag = DAG(
