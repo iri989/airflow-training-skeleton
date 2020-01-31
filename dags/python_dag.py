@@ -15,7 +15,7 @@ def myfunc(**context):
 
 
 dag = DAG(
-    dag_id="my_first_dag",
+    dag_id="pyop_dag",
     default_args=args,
     schedule_interval='30 2 * * *',
     description="Demo DAG showing a hello world",
