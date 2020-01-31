@@ -13,10 +13,6 @@ args = {
 }
 
 
-def myfunc(**context):
-    print(context["execution_date"])
-
-
 dag = DAG(
     dag_id="pyop_dag",
     default_args=args,
@@ -33,13 +29,13 @@ the_end = BashOperator(task_id="the_end", dag=dag, bash_command="echo 'done'")
 # ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 
-def check_date(**context):
+def check_date(execution_date, **context):
     return context['execution_date'].strftime("%a")
 
 
 pytask = BranchPythonOperator(
     task_id='check_day',
-    python_callable=check_date(),
+    python_callable=check_date(datetime.now()),
     provide_context=True,
     dag=dag
 )
