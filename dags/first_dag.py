@@ -12,7 +12,7 @@ dag = DAG(
     default_args=args,
     schedule_interval='@daily',
     description="Demo DAG showing a hello world",
-    catchup=True,
+    start_date=datetime(year=2020, month=1, day=1),
 )
 
 task1 = DummyOperator(task_id="task1", dag=dag)
