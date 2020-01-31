@@ -8,7 +8,7 @@ args = {
 }
 
 dag = DAG(
-    dag_id="pyop_dag",
+    dag_id="conn_to_pg",
     default_args=args,
     schedule_interval='30 2 * * *',
     description="Demo DAG showing a hello world",
