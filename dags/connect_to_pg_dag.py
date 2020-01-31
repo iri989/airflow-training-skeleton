@@ -24,10 +24,10 @@ operator = PostgresToGoogleCloudStorageOperator(
     google_cloud_storage_conn_id="google_cloud_storage_default",
     dag=dag
 )
-#
-# hook = PostgresHook(
-#     postgres_conn_id='postgres_default'
-# )
-#
-#
-# hook.get_records("SELECT transfer_date FROM land_registry_price_paid_uk LIMIT 10")
+
+hook = PostgresHook(
+    postgres_conn_id='postgres_default'
+)
+
+
+hook.get_records("SELECT transfer_date FROM land_registry_price_paid_uk LIMIT 10")
