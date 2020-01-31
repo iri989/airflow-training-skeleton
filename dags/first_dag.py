@@ -2,6 +2,7 @@ import airflow
 from airflow.models import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from datetime import datetime
+
 args = {
     "start_date": datetime(2020, 1, 1),
 }
@@ -10,7 +11,8 @@ dag = DAG(
     dag_id="my_first_dag",
     default_args=args,
     schedule_interval='@daily',
-    description="Demo DAG showing a hello world"
+    description="Demo DAG showing a hello world",
+    catchup=True,
 )
 
 task1 = DummyOperator(task_id="task1", dag=dag)
