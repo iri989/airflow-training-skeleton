@@ -7,7 +7,7 @@ import requests
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.hooks.base_hook import BaseHook
-from airflow.models.baseoperator import BaseOperator
+from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 
