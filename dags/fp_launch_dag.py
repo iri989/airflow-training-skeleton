@@ -20,13 +20,13 @@ def _print_stats(ds, **context):
         else:
             print(f"No rockets found in {f.name}")
 dag = DAG(
-    dag_id="download_rocket_launches",
+    dag_id="fp_download_rocket_launches",
     default_args=ARGS,
     description="DAG downloading rocket launches from Launch Library.",
     schedule_interval="0 0 * * *"
 )
 download_rocket_launches = LaunchLibraryOperator(
-    task_id="download_rocket_launches",
+    task_id="fp_download_rocket_launches",
     request_conn_id='launch_rockets_conn',
     endpoint='launch',
     params=dict(startdate='{{ ds }}', enddate='{{ tomorrow_ds }}'),
